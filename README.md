@@ -37,7 +37,7 @@ The agent can solve:
 
 ## Project Structure
 
-.
+
 ├── agent.py
 ├── calculator.py
 ├── products.json
