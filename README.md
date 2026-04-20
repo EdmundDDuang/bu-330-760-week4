@@ -2,39 +2,57 @@
 
 ## Overview
 
-This project implements a math agent that solves questions using tools in a ReAct-style loop.
+This project implements a math agent that solves different types of questions using tools in a ReAct-style loop.
 
-The agent reads a list of questions from a markdown file and uses different tools to generate step-by-step solutions.
+The agent reads questions from a markdown file and answers them step by step by selecting the appropriate tool.
 
 ## Features
 
-- Uses a **calculator tool** for arithmetic operations
-- Implements a **product lookup tool** to retrieve product prices from a JSON file
-- Handles both math problems and product-related questions
-- Provides step-by-step reasoning for each answer
+- Solves math and logic problems automatically
+- Uses tools dynamically based on the question
+- Provides step-by-step reasoning
+- Handles both arithmetic and product-related questions
 
 ## Tools Implemented
 
 ### Calculator Tool
-Evaluates mathematical expressions such as:
-- Multiplication
-- Exponents
-- Percentages
+
+- Evaluates mathematical expressions
+- Supports operations such as multiplication, exponents, and percentages
 
 ### Product Lookup Tool
-- Reads data from `products.json`
-- Returns the price of a given product
-- Lists available products if the requested one is not found
+
+- Reads product data from `products.json`
+- Returns the price of a requested product
+- Lists available products if the product is not found
 
 ## Example Questions
 
 The agent can solve:
+
 - Basic arithmetic (e.g., 847 × 293)
 - Financial calculations (compound interest)
-- Logical problems (bat and ball problem)
-- Product comparisons (best deal between items)
+- Logic problems (bat and ball problem)
+- Product comparisons (finding the best deal)
 
-## How to Run
+## Project Structure
 
-```bash
+```text
+.
+├── agent.py
+├── calculator.py
+├── products.json
+├── math_questions.md
+└── README.md
+
+How to Run
+
+Run the following command in the terminal:
+
 uv run agent.py
+
+Video Walkthrough
+
+This video demonstrates the agent running in the terminal and solving all questions, including product-based queries using the product lookup tool:
+
+https://youtu.be/ruojyXNXmjw
