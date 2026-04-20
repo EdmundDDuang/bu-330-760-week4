@@ -45,13 +45,13 @@ The agent can solve:
 ├── math_questions.md
 └── README.md
 
-How to Run
+## How to Run
 
 Run the following command in the terminal:
 
 uv run agent.py
 
-Video Walkthrough
+## Video Walkthrough
 
 This video demonstrates the agent running in the terminal and solving all questions, including product-based queries using the product lookup tool:
 
