@@ -12,7 +12,7 @@ load_dotenv()
 #   "google-gla:gemini-2.5-flash"       (needs GOOGLE_API_KEY)
 #   "openai:gpt-4o-mini"                (needs OPENAI_API_KEY)
 #   "anthropic:claude-sonnet-4-6"    (needs ANTHROPIC_API_KEY)
-MODEL = "google-gla:gemini-2.5-flash"
+MODEL = "openai:gpt-4o-mini"
 
 agent = Agent(
     MODEL,
@@ -47,7 +47,17 @@ def calculator_tool(expression: str) -> str:
 #     Use this when a question asks about product prices from the catalog.
 #     """
 #     ...
+@agent.tool_plain
+def product_lookup(product_name: str) -> str:
+    """Look up a product price by name from products.json."""
+    with open("products.json", "r") as f:
+        products = json.load(f)
 
+    if product_name in products:
+        return str(products[product_name])
+
+    available_products = ", ".join(products.keys())
+    return f"Product not found. Available products: {available_products}"
 
 def load_questions(path: str = "math_questions.md") -> list[str]:
     """Load numbered questions from the markdown file."""
