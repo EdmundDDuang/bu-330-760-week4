@@ -44,6 +44,7 @@ The agent can solve:
 ├── products.json
 ├── math_questions.md
 └── README.md
+```
 
 ## How to Run
 
