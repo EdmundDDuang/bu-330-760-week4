@@ -1,35 +1,40 @@
-# Week 4 Starter: Math Agent
+# BU-330-760 Week 4 – Math Agent
 
-A ReAct agent that solves questions using tool calls.
+## Overview
 
-## Setup
+This project implements a math agent that solves questions using tools in a ReAct-style loop.
 
-1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it.
+The agent reads a list of questions from a markdown file and uses different tools to generate step-by-step solutions.
 
-2. Copy `.env.example` to `.env` and add your API key:
-   ```bash
-   cp .env.example .env
-   ```
-   Then edit `.env` and replace `your-key-here` with your key from [Google AI Studio](https://aistudio.google.com/apikey).
+## Features
 
-   To use a different provider, change the `MODEL` variable in `agent.py` and set the matching key in `.env`.
+- Uses a **calculator tool** for arithmetic operations
+- Implements a **product lookup tool** to retrieve product prices from a JSON file
+- Handles both math problems and product-related questions
+- Provides step-by-step reasoning for each answer
 
-3. Make sure `.env` is in your `.gitignore` so you don't commit your key.
+## Tools Implemented
 
-## Run
+### Calculator Tool
+Evaluates mathematical expressions such as:
+- Multiplication
+- Exponents
+- Percentages
+
+### Product Lookup Tool
+- Reads data from `products.json`
+- Returns the price of a given product
+- Lists available products if the requested one is not found
+
+## Example Questions
+
+The agent can solve:
+- Basic arithmetic (e.g., 847 × 293)
+- Financial calculations (compound interest)
+- Logical problems (bat and ball problem)
+- Product comparisons (best deal between items)
+
+## How to Run
 
 ```bash
 uv run agent.py
-```
-
-uv will install dependencies automatically on first run.
-
-The agent will work through each question in `math_questions.md` and print the ReAct trace (Reason / Act / Result) for each one.
-
-## Files
-
-- `agent.py` - the ReAct agent (this is the file you'll modify)
-- `calculator.py` - calculator tool
-- `products.json` - product catalog with prices
-- `math_questions.md` - the questions the agent solves
-- `.env.example` - template for your API key
